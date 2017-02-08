@@ -1,0 +1,49 @@
+
+<html ng-app="medical">
+    <head>
+        <title>Temperatura</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> </link>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css"> </link>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+        <script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/temperaturaController.js"></script>
+       
+    </head>
+    <body>
+        <div ng-controller="temperaturaController as temperatura">
+            
+            <h1> Tabella delle misurazioni</h1>
+            <br />
+            
+            <form>
+                <caption>Nuova temperatura:</caption>
+                <input ng-model="newTemp.datamisurazione" type="date" name="datamisurazione" placeholder="data" required />
+                <input ng-model="newTemp.valore" type="number" name="sistolica" placeholder="valore" required />	
+                <button type="submit" ng-click="temperatura.insertData()">Salva</button>
+            </form>
+        
+        <div class="col-md-9">
+        <table border="1" class="table table-striped">
+              <tr class="danger">
+               <td>ID</td>
+               <td>Valore</td>
+               <td>Data_misurazione</td>
+               <td>Elimina</td>
+            </tr> 
+            <tr ng-repeat="(k,v) in table">
+               <td>{{v.id}}</td>
+               <td>{{v.valore}}</td>
+               <td>{{v.datamisurazione}}</td>
+               <td> <button class="btn btn-xs btn-danger" ng-click="temperatura.clearRow(v.id)">X</button> </td>
+            </tr>
+        </table>
+            
+            <strong><a href="http://localhost/ng-pressione/pressione_frontend/index.html"> Clicca qui per tornare alla tabella pressione </a></strong>
+            
+        </div>
+        </div>
+    </body>
+</html>

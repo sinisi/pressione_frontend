@@ -1,4 +1,4 @@
-<html ng-app="pressione">
+<html ng-app="medical">
     <head>
         <title>Pressione</title>
         <meta charset="UTF-8">
@@ -14,11 +14,11 @@
     <body>
         <div ng-controller="pressioneController as pressione">
             
-            <h1> Tabella delle misurazioni</h1>
+            <h1> Tabella delle misurazioni </h1>
             <br />
             
             <form>
-                <caption>Nuova misurazione:</caption>
+                <caption>Nuove temperature:</caption>
                 <input ng-model="newMis.datamisurazione" type="date" name="datamisurazione" placeholder="data" required />
                 <input ng-model="newMis.sistolica" type="number" name="sistolica" placeholder="sistolica" required />
                 <input ng-model="newMis.diastolica" type="number" name="diastolica" placeholder="diastolica" required />	
@@ -27,7 +27,8 @@
             </form>
         
         <div class="col-md-9">
-        <table border="1" class="table table-striped">
+        
+            <table border="1" class="table table-striped">
               <tr class="danger">
                <td>ID</td>
                <td>Sistolica</td>
@@ -42,9 +43,12 @@
                <td>{{v.diastolica}}</td>
                <td>{{v.pesocorporeo}}</td>
                <td>{{v.datamisurazione}}</td>
-               <td> <button class="btn btn-xs btn-danger" ng-click="pressione.clearRow(k)">X</button> </td>
+               <td> <button class="btn btn-xs btn-danger" ng-click="pressione.clearRow(v.id)">X</button> </td>
             </tr>
         </table>
+            
+            <strong><a href="http://localhost/ng-pressione/pressione_frontend/temp.html"> Clicca qui per tornare alla tabella temperatura </a></strong>
+            
         </div>
         </div>
     </body>

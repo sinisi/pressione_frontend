@@ -1,4 +1,4 @@
-var pressione = angular.module('pressione', []);
+var pressione = angular.module('medical', []);
 
 
 
